@@ -1,0 +1,5 @@
+<j:jelly xmlns:j="jelly:core">
+    <td class="pane testStatus">
+        ${it.status}
+    </td>
+</j:jelly>

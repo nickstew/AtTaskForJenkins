@@ -1,0 +1,37 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+  -->
+
+  <!--
+    Creates a text field that shows the value of the "name" property.
+    When submitted, it will be passed to the corresponding constructor parameter.
+  -->
+    <f:entry title="Include Upstream Committers on assignments and notifications" field="assignCommitters" help="/plugin/AtTaskForJenkins/help-assignUpstreamCommitters.html" >
+        <f:checkbox />
+    </f:entry>
+    <f:entry title="Notify Committers when a test fails or is fixed" field="notifyCommitters" help="/plugin/AtTaskForJenkins/help-notifyCommitters.html" >
+        <f:checkbox checked="true"/>
+    </f:entry>
+    <f:entry title="Notify Culprits when a test fails or is fixed" field="notifyCulprits" help="/plugin/AtTaskForJenkins/help-notifyCulprits.html" >
+        <f:checkbox />
+    </f:entry>
+    <f:optionalBlock name="overrideMaxValues" inline="true" title="Override max test and assignment values" field="overrideMaxValues">
+        <f:entry title="Max test failures to auto-assign per build" field="maxAssignments" help="/plugin/AtTaskForJenkins/help-maxAssignments.html">
+            <f:textbox clazz="number" default="${descriptor.getMaxAssignments()}"/>
+        </f:entry>
+        <f:entry title="Max test failures to log per build" field="maxTests" help="/plugin/AtTaskForJenkins/help-maxTests.html">
+            <f:textbox clazz="number" default="${descriptor.getMaxTests()}"/>
+        </f:entry>
+    </f:optionalBlock>
+    <f:advanced>
+    <f:entry title="Custom Project Name" field="customProjectName" help="/plugin/AtTaskForJenkins/help-customProjectName.html" >
+        <f:textbox />
+    </f:entry>
+        <f:entry title="Extra Recipients of Notifications and Assignments" field="extraCommitters" help="/plugin/AtTaskForJenkins/help-extraCommitters.html" >
+        <f:textbox />
+    </f:entry>
+    </f:advanced>
+</j:jelly>

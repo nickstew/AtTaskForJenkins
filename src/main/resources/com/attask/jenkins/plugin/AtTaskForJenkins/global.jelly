@@ -1,0 +1,33 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+    <!--Add AtTaskConnector config to "Manage Jenkins &ndash;&gt; Configure System" -->
+
+    <!--    • Include fields for username, password, and url. -->
+    <!--    • URL should be fully qualified, e.g. "http://support.attask-ondemand.com:8080" -->
+    <!--    • Default group name field -->
+    <!--Project create and sync -->
+
+    <f:section title="AtTask">
+        <f:entry title="${%Username}" field="username">
+            <f:textbox />
+        </f:entry>
+        <f:entry title="${%Password}" field="password">
+            <f:password />
+        </f:entry>
+        <f:entry title="${%URL}" field="url" help="/plugin/AtTaskForJenkins/help-url.html">
+            <f:textbox />
+        </f:entry>
+        <f:entry title="${%Group}" field="groupName" help="/plugin/AtTaskForJenkins/help-groupName.html">
+            <f:textbox default="Default Group"/>
+        </f:entry>
+        <f:entry title="Default - Max test failures to auto-assign per build" field="maxAssignments" help="/plugin/AtTaskForJenkins/help-maxAssignments.html">
+            <f:textbox clazz="number" default="10"/>
+        </f:entry>
+        <f:entry title="Default - Max test failures to log per build" field="maxTests" help="/plugin/AtTaskForJenkins/help-maxTests.html">
+            <f:textbox clazz="number" default="100"/>
+        </f:entry>
+        <f:validateButton
+                title="${%Test Connection}" progress="${%Testing...}"
+                method="testConnection" with="password,username,url" />
+    </f:section>
+</j:jelly>

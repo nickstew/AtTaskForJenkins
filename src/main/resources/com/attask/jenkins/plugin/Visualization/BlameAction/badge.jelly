@@ -1,0 +1,20 @@
+<j:jelly xmlns:j="jelly:core">
+    <td class="pane testFailureAssignment">
+        <input type="hidden" id="blameUrl" value="${it.blameUrl}"/>
+        <select class="blameSelect"  onChange="assign('${it.blameUrl}', this);">
+            <option value="">Unassigned</option>
+            <j:forEach var="groupMember" items="${it.groupMembers}">
+            	<j:choose>
+            		<j:set var="memberName" value="${groupMember.name}"/>
+            		<j:set var="assignedToName" value="${it.assignedToName}"/>
+					<j:when test="${memberName.equals(assignedToName)}">
+						<option selected="true" value="${groupMember.id}">${groupMember.name}</option>
+					</j:when>
+					<j:otherwise>
+						<option value="${groupMember.id}">${groupMember.name}</option>
+					</j:otherwise>
+				</j:choose>
+            </j:forEach>
+        </select>
+    </td>
+</j:jelly>

@@ -1,0 +1,3 @@
+<j:jelly xmlns:j="jelly:core">
+  <div><a href="${it.link}">See this test in AtTask</a></div>
+</j:jelly>

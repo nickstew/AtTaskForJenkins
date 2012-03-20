@@ -1,0 +1,19 @@
+<j:jelly xmlns:j="jelly:core">
+    <b>Assigned To: </b>
+    <input type="hidden" id="blameUrl" value="${it.blameUrl}"/>
+    <select class="blameSelect">
+		<option value="">Unassigned</option>
+		<j:forEach var="committer" items="${it.committers}">
+			<j:choose>
+				<j:set var="committerName" value="${committer.name}"/>
+				<j:set var="assignedToName" value="${it.assignedToName}"/>
+				<j:when test="${committerName.equals(assignedToName)}">
+					<option selected="true" value="${committer.id}">${committer.name}</option>
+				</j:when>
+				<j:otherwise>
+					<option value="${committer.id}">${committer.name}</option>
+				</j:otherwise>
+			</j:choose>
+		</j:forEach>
+	</select>
+</j:jelly>

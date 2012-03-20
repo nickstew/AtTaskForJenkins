@@ -1,0 +1,49 @@
+10
+
+dir
+0
+svn+ssh://brentlee@svn.ops.ut.us.attask.com/SVN/Development/redrock/support/AtTaskForJenkins/src/main/resources/com/attask/jenkins/plugin/AtTaskForJenkins
+svn+ssh://brentlee@svn.ops.ut.us.attask.com/SVN/Development/redrock
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7fce6104-450a-0410-b257-965f86c39ad3
+
+config.jelly
+file
+
+
+
+add
+
+global.jelly
+file
+
+
+
+add
+
+help-name.html
+file
+
+
+
+add
+

@@ -1,0 +1,5 @@
+<j:jelly xmlns:j="jelly:core">
+    <td class="pane ${it.classTag}">
+        ${it.text}
+    </td>
+</j:jelly>
